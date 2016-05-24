@@ -47,10 +47,7 @@ class Hand
   def add *cards
       cards.each do |card|
         @current_hand.push card
-
-    # @current_hand.push(card_1).push(card_2).push
     end
-    # binding.pry
   end
 
   def value
@@ -80,4 +77,15 @@ class Hand
       return false
     end
   end
+
+  def blackjack?
+    if value == 21
+      puts "BLACKJACK!"
+      return true
+    else
+      return false
+    end
+
+  end
+
 end
