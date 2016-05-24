@@ -57,12 +57,18 @@ class Hand
     @current_hand.each do |card|
       total += card.value
     end
-    total
-  end
-  if total > 21 && @drawn_card == :A
-    :A = 1
-  else
-    :A = 11
+    if total <= 21 
+      return total
+    else
+      total = 0
+      @current_hand.each do |card|
+        if card.rank == :A
+          total += 1
+        else
+          total += card.value
+        end
+      end
+    return total
   end
   end
 end
