@@ -37,7 +37,7 @@ class Deck
 end
 
 class Hand
-  attr_reader :value
+  attr_reader :value, :current_hand
 
   def initialize
     @value = 0
@@ -86,6 +86,20 @@ class Hand
       return false
     end
 
+  end
+
+  def to_s
+    a_card_elements = []
+    card_s_array = []
+    current_hand.each do |card|
+      card_elements = []
+      card_elements.push card.rank, card.suit
+      a_card_elements.push(card_elements)
+    end
+    a_card_elements.each do |pair|
+      card_s_array.push pair.join
+    end
+    card_s_array.join", "
   end
 
 end

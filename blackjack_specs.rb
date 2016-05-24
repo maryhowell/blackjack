@@ -78,10 +78,10 @@ class TestHand < Minitest::Test
     assert hand.blackjack?
   end
 
-#   def test_hand_as_string
-#     hand = Hand.new
-#     hand.add(Card.new(:A, :H), Card.new(:K, :S))
-#     hand.add(Card.new(5, :S))
-#     assert_equal hand.to_s, 'AH, KS, 5S'
-#   end
+  def test_hand_as_string
+    hand = Hand.new
+    hand.add(Card.new(:A, :H), Card.new(:K, :S))
+    hand.add(Card.new(5, :S))
+    assert_equal hand.to_s, 'AH, KS, 5S'
+  end
 end
