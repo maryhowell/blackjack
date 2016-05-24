@@ -37,10 +37,9 @@ class Deck
 end
 
 class Hand
-  attr_reader :value, :current_hand
+  attr_reader :current_hand
 
   def initialize
-    @value = 0
     @current_hand = []
   end
 
@@ -71,22 +70,13 @@ class Hand
   end
 
   def busted?
-    if value > 21
-      return true
-    else
-      return false
-    end
+    value > 21
   end
 
   def blackjack?
-    if value == 21
-      puts "BLACKJACK!"
-      return true
-    else
-      return false
-    end
-
+    value == 21
   end
+
 
   def to_s
     a_card_elements = []
