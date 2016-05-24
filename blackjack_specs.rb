@@ -50,22 +50,22 @@ class TestHand < Minitest::Test
     hand.add(Card.new(4, :D))
     assert_equal 20, hand.value
   end
-#
-#   def test_hand_value_with_face_cards
-#     hand = Hand.new
-#     hand.add(Card.new(9, :H), Card.new(:K, :S))
-#     assert_equal 19, hand.value
-#   end
-#
-#   def test_hand_value_with_aces
-#     hand = Hand.new
-#     hand.add(Card.new(:A, :H), Card.new(:K, :S))
-#     assert_equal 21, hand.value
-#
-#     hand.add(Card.new(5, :S))
-#     assert_equal 16, hand.value
-#   end
-#
+
+  def test_hand_value_with_face_cards
+    hand = Hand.new
+    hand.add(Card.new(9, :H), Card.new(:K, :S))
+    assert_equal 19, hand.value
+  end
+
+  def test_hand_value_with_aces
+    hand = Hand.new
+    hand.add(Card.new(:A, :H), Card.new(:K, :S))
+    assert_equal 21, hand.value
+
+    hand.add(Card.new(5, :S))
+    assert_equal 16, hand.value
+  end
+
 #   def test_busting
 #     hand = Hand.new
 #     hand.add(Card.new(6, :H), Card.new(:K, :S), Card.new(9, :H))

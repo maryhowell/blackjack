@@ -9,6 +9,8 @@ class Card
   def value
     if (2 .. 10).include? @rank
       @rank
+    elsif @rank == :A
+      11
     else
       10
     end
@@ -39,14 +41,28 @@ class Hand
 
   def initialize
     @value = 0
+    @current_hand = []
   end
 
   def add card_1, card_2 = nil
-    if card_2 == nil
-      @value = @value + card_1.value
+    if card_2.nil?
+      @current_hand.push(card_1)
     else
-      @value = card_1.value + card_2.value
+    @current_hand.push(card_1).push(card_2)
     end
   end
 
+  def value
+    total = 0
+    @current_hand.each do |card|
+      total += card.value
+    end
+    total
+  end
+  if total > 21 && @drawn_card == :A
+    :A = 1
+  else
+    :A = 11
+  end
+  end
 end
