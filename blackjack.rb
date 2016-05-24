@@ -44,12 +44,13 @@ class Hand
     @current_hand = []
   end
 
-  def add card_1, card_2 = nil
-    if card_2.nil?
-      @current_hand.push(card_1)
-    else
-    @current_hand.push(card_1).push(card_2)
+  def add *cards
+      cards.each do |card|
+        @current_hand.push card
+
+    # @current_hand.push(card_1).push(card_2).push
     end
+    # binding.pry
   end
 
   def value
@@ -57,7 +58,7 @@ class Hand
     @current_hand.each do |card|
       total += card.value
     end
-    if total <= 21 
+    if total <= 21
       return total
     else
       total = 0
@@ -70,5 +71,13 @@ class Hand
       end
     return total
   end
+  end
+
+  def busted?
+    if value > 21
+      return true
+    else
+      return false
+    end
   end
 end
